@@ -309,12 +309,10 @@
 }
 
 #pragma mark - events
-
 - (void)gesture:(UIGestureRecognizer*)gesture view:(UIView**)view viewIndex:(NSInteger*)viewIndex
 {
         
     BDDynamicGridCell *cell = (BDDynamicGridCell*) [gesture.view.superview superview];
-    
     CGPoint locationInGridContainer = [gesture locationInView:gesture.view];    
     for (int i=0; i < cell.gridContainerView.subviews.count; i++){
         UIView *subview = [cell.gridContainerView.subviews objectAtIndex:i];
@@ -322,6 +320,30 @@
                                          0, 
                                          subview.frame.size.width + (self.borderWidth * 2), 
                                          cell.gridContainerView.frame.size.height);
+        
+        if(CGRectContainsPoint(vincinityRect, locationInGridContainer)){
+            *view = subview;
+            *viewIndex = ((cell.rowInfo.accumulatedViews) + i );
+            break;
+        }
+    }
+}
+
+- (void)gesture:(UIGestureRecognizer*)gesture view:(UIView**)view viewIndex:(NSInteger*)viewIndex rect:(CGRect*)rect
+{
+    
+    BDDynamicGridCell *cell = (BDDynamicGridCell*) [gesture.view.superview superview];
+    NSIndexPath* indexPath = [_tableView indexPathForCell:cell];
+    //NSLog(@"%d", indexPath.row);
+    *rect = [_tableView rectForRowAtIndexPath:indexPath];
+    *rect = [_tableView convertRect:*rect toView:[_tableView superview]];
+    CGPoint locationInGridContainer = [gesture locationInView:gesture.view];
+    for (int i=0; i < cell.gridContainerView.subviews.count; i++){
+        UIView *subview = [cell.gridContainerView.subviews objectAtIndex:i];
+        CGRect vincinityRect = CGRectMake(subview.frame.origin.x - self.borderWidth,
+                                          0,
+                                          subview.frame.size.width + (self.borderWidth * 2),
+                                          cell.gridContainerView.frame.size.height);
         
         if(CGRectContainsPoint(vincinityRect, locationInGridContainer)){
             *view = subview;
@@ -372,13 +394,15 @@
 
 - (void)didSingleTap:(UITapGestureRecognizer*)singleTap
 {
+    //NSLog(@"TAPPED!");
     if (singleTap.state == UIGestureRecognizerStateRecognized) {
         UIView *view = nil;
         NSInteger viewIndex = -1;
+        CGRect rect;
         //DLog(@"view %@, viewIndex %d", view, viewIndex);
-        [self gesture:singleTap view:&view viewIndex:&viewIndex];
-        if (self.onSingleTap) {
-            self.onSingleTap(view, viewIndex);
+        [self gesture:singleTap view:&view viewIndex:&viewIndex rect:&rect];
+        if (self.onSingleTapWithRect) {
+            self.onSingleTapWithRect(view, viewIndex,rect);
         }
     }
 }
@@ -388,4 +412,5 @@
 @synthesize onLongPress;
 @synthesize onDoubleTap;
 @synthesize onSingleTap;
+@synthesize onSingleTapWithRect;
 @end

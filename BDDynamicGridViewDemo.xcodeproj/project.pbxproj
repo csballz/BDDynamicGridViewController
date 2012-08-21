@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F3A7ED4B159546800094D086 /* BDDynamicGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A7ED4A159546800094D086 /* BDDynamicGridCell.m */; };
 		F3A7ED4F159555ED0094D086 /* BDRowInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A7ED4E159555ED0094D086 /* BDRowInfo.m */; };
-		F3B7DF60159362AC00FF920B /* BDViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B7DF5F159362AC00FF920B /* BDViewController+Private.m */; };
 		F3D84A801593E8B900633ECD /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3D84A671593E8B900633ECD /* 1.jpg */; };
 		F3D84A811593E8B900633ECD /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3D84A681593E8B900633ECD /* 2.jpg */; };
 		F3D84A821593E8B900633ECD /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3D84A691593E8B900633ECD /* 3.jpg */; };
@@ -54,8 +53,6 @@
 		F3A7ED4A159546800094D086 /* BDDynamicGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicGridCell.m; sourceTree = "<group>"; };
 		F3A7ED4D159555ED0094D086 /* BDRowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDRowInfo.h; sourceTree = "<group>"; };
 		F3A7ED4E159555ED0094D086 /* BDRowInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDRowInfo.m; sourceTree = "<group>"; };
-		F3B7DF5E159362AC00FF920B /* BDViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BDViewController+Private.h"; sourceTree = "<group>"; };
-		F3B7DF5F159362AC00FF920B /* BDViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BDViewController+Private.m"; sourceTree = "<group>"; };
 		F3D84A671593E8B900633ECD /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = images/1.jpg; sourceTree = "<group>"; };
 		F3D84A681593E8B900633ECD /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = images/2.jpg; sourceTree = "<group>"; };
 		F3D84A691593E8B900633ECD /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpg; path = images/3.jpg; sourceTree = "<group>"; };
@@ -201,8 +198,6 @@
 				FF5D5FF7159310FE00984C2F /* BDAppDelegate.m */,
 				FF5D5FF9159310FE00984C2F /* BDViewController.h */,
 				FF5D5FFA159310FE00984C2F /* BDViewController.m */,
-				F3B7DF5E159362AC00FF920B /* BDViewController+Private.h */,
-				F3B7DF5F159362AC00FF920B /* BDViewController+Private.m */,
 				FF5D5FEE159310FE00984C2F /* Supporting Files */,
 			);
 			path = BDDynamicGridViewDemo;
@@ -315,7 +310,6 @@
 				FF5D5FF4159310FE00984C2F /* main.m in Sources */,
 				FF5D5FF8159310FE00984C2F /* BDAppDelegate.m in Sources */,
 				FF5D5FFB159310FE00984C2F /* BDViewController.m in Sources */,
-				F3B7DF60159362AC00FF920B /* BDViewController+Private.m in Sources */,
 				FF52D5F21594862B0037D45B /* BDDynamicGridViewController.m in Sources */,
 				F3A7ED4B159546800094D086 /* BDDynamicGridCell.m in Sources */,
 				F3A7ED4F159555ED0094D086 /* BDRowInfo.m in Sources */,
@@ -387,7 +381,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDDynamicGridViewDemo/BDDynamicGridViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "BDDynamicGridViewDemo/BDDynamicGridViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -398,7 +394,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDDynamicGridViewDemo/BDDynamicGridViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "BDDynamicGridViewDemo/BDDynamicGridViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

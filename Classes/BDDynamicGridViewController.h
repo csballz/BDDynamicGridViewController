@@ -125,6 +125,8 @@
  */
 @property (nonatomic, copy) void (^onSingleTap)(UIView*, NSInteger);
 
+@property (nonatomic, copy) void (^onSingleTapWithRect)(UIView*, NSInteger, CGRect);
+
 
 /**
  Block executed when a UIView is double tapped.

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BDDynamicGridViewController.h"
-@interface BDViewController : BDDynamicGridViewController <BDDynamicGridViewDelegate>{
-    NSArray * _items;
-}
+@interface BDViewController : BDDynamicGridViewController <BDDynamicGridViewDelegate>
+
+- (void) _demoAsyncDataLoading;
+- (void) buildBarButtons;
 
 @end
